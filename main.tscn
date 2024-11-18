@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://om1kjnwgvwn3"]
+[gd_scene load_steps=14 format=3 uid="uid://om1kjnwgvwn3"]
 
 [ext_resource type="Texture2D" uid="uid://b1duui5i5ivjp" path="res://bg/bg1.jpg" id="1_aagla"]
 [ext_resource type="Script" path="res://menu.gd" id="1_oye5h"]
 [ext_resource type="FontFile" uid="uid://cos2p43qul2sb" path="res://placeholders/MysteryQuest-Regular.ttf" id="2_51d8n"]
 [ext_resource type="AudioStream" uid="uid://dt7iyimuhg6ha" path="res://placeholders/relaxing-piano-music-248868.mp3" id="3_1kri6"]
 [ext_resource type="Texture2D" uid="uid://di23veme3cgn" path="res://placeholders/voice.png" id="4_nbra7"]
+[ext_resource type="Script" path="res://comms.gd" id="6_q063w"]
+[ext_resource type="Script" path="res://http_request.gd" id="7_5061n"]
 
 [sub_resource type="Animation" id="Animation_rab7s"]
 length = 0.001
@@ -259,6 +261,7 @@ offset_top = 187.0
 offset_right = -296.435
 offset_bottom = 420.0
 grow_vertical = 2
+script = ExtResource("6_q063w")
 
 [node name="Record" type="Button" parent="MicContainer"]
 unique_name_in_owner = true
@@ -280,6 +283,17 @@ max_value = 1.0
 
 [node name="VolumeText" type="Label" parent="MicContainer"]
 layout_mode = 2
+
+[node name="State" type="Label" parent="MicContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "idle"
+
+[node name="STTresponse" type="RichTextLabel" parent="MicContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "nothing"
+fit_content = true
 
 [node name="MicButton" type="Button" parent="."]
 layout_mode = 1
@@ -309,7 +323,30 @@ area_mask = 0
 
 [node name="micOutput" type="AudioStreamPlayer2D" parent="."]
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+use_threads = true
+script = ExtResource("7_5061n")
+
+[node name="AIcontainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 182.0
+offset_right = 370.0
+offset_bottom = 398.0
+
+[node name="AIstate" type="Label" parent="AIcontainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "idle"
+
+[node name="AIResponse" type="RichTextLabel" parent="AIcontainer"]
+unique_name_in_owner = true
+layout_mode = 2
+fit_content = true
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animplayer_animation_finished"]
-[connection signal="pressed" from="MicContainer/Record" to="." method="_on_record_pressed"]
-[connection signal="pressed" from="MicContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MicContainer/Record" to="MicContainer" method="_on_record_pressed"]
+[connection signal="pressed" from="MicContainer/Play" to="MicContainer" method="_on_play_pressed"]
+[connection signal="pressed" from="MicContainer/Send" to="HTTPRequest" method="_on_send_pressed"]
 [connection signal="pressed" from="MicButton" to="." method="_on_mic_button_pressed"]
