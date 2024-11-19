@@ -270,6 +270,7 @@ action_mode = 0
 text = "Record"
 
 [node name="Play" type="Button" parent="MicContainer"]
+visible = false
 layout_mode = 2
 text = "Play"
 
@@ -346,7 +347,7 @@ layout_mode = 2
 fit_content = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animplayer_animation_finished"]
+[connection signal="button_up" from="MicContainer/Record" to="MicContainer" method="_on_record_button_up"]
 [connection signal="pressed" from="MicContainer/Record" to="MicContainer" method="_on_record_pressed"]
-[connection signal="pressed" from="MicContainer/Play" to="MicContainer" method="_on_play_pressed"]
 [connection signal="pressed" from="MicContainer/Send" to="HTTPRequest" method="_on_send_pressed"]
 [connection signal="pressed" from="MicButton" to="." method="_on_mic_button_pressed"]
