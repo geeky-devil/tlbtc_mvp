@@ -4,12 +4,13 @@ var console
 var window
 var received_text
 var isListening
-
+signal sendText
 func _ready():
 	isListening=false
+	connect('sendText',%HTTPRequest.sendRequest)
 	setup_microphone()
 	console=JavaScriptBridge.get_interface('console')
-	#window=JavaScriptBridge.get_interface('window')
+	window=JavaScriptBridge.get_interface('window')
 # Functions to control the JavaScript audio functions
 func setup_microphone() -> void:
 	JavaScriptBridge.call("eval", "setupMicrophone();")
@@ -50,13 +51,15 @@ func _on_record_pressed():
 	isListening=true
 	start_listening()
 	
+	
 
 
 
 func _on_record_button_up():
-	print('Button released, aint listening')
+	print('Button released, stopped listening')
 	stop_listening()
 	%Record.scale(1)
+	sendText.emit()
 	isListening=false
 
 func  _process(delta):
