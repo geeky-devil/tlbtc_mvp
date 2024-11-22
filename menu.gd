@@ -12,6 +12,9 @@ var record_effect:AudioEffectRecord
 var recording:AudioStream
 func _ready():
 	mic_container.modulate.a=0
+	$API_container.modulate=0
+	#%Record.self_modulate.a=0
+	$AIcontainer.modulate.a=0
 	mic_container.process_mode=Node.PROCESS_MODE_DISABLED
 	print('ready')
 	animPlayer.play('title')

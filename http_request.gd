@@ -8,25 +8,30 @@ var header
 var window
 var callback=JavaScriptBridge.create_callback(_onCallback)
 func _ready():
-	var file = FileAccess.open("res://env.txt", FileAccess.READ)
-	var content = file.get_as_text()
-	var contentSplit=content.split("=")
-	api_key=contentSplit[1]
-	file.close()
 	window=JavaScriptBridge.get_interface('window')
-	url="https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=%s" %api_key
-
+	#Gonna keep this for future
+	#var file = FileAccess.open("res://env.txt", FileAccess.READ)
+	#var content = file.get_as_text()
+	#var contentSplit=content.split("=")
+	#api_key=contentSplit[1]
+	#file.close()
 	
-func _on_send_pressed():
+func _onCallback(args):
+	print('callbackworking')
+	window.speak()
+	%AIResponse.text=window.aiResponse
+
+
+func sendRequest():
 	text=%STTresponse.text
 	%STTresponse.clear()
 	if text=='' or text=="Awaiting Response...":
 		print("No text to send")
 		return
 	%AIstate.text='thinking'
-	window.getResponse(str(url)).then(callback)
-	
-func _onCallback(args):
-	print('callbackworking')
-	window.speak()
-	%AIResponse.text=window.aiResponse
+	print('Getting Response')
+	window.getResponse(api_key).then(callback)
+
+
+func _on_api_container_text_submitted(new_text):
+	api_key=new_text
