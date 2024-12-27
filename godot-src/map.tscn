@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bp2eqt37qqms7"]
+
+[ext_resource type="Script" path="res://map.gd" id="1_p0072"]
+[ext_resource type="Texture2D" uid="uid://gfui80kye5bf" path="res://scenes/map.png" id="1_s2d5i"]
+[ext_resource type="Texture2D" uid="uid://cbk6gb5053js1" path="res://icon.svg" id="2_jdnkw"]
+[ext_resource type="AudioStream" uid="uid://bmtffbg3p4iny" path="res://placeholders/421152__giocosound__footstep_wood_toe_2.wav" id="4_w2xq0"]
+
+[sub_resource type="Curve2D" id="Curve2D_ux07k"]
+_data = {
+"points": PackedVector2Array(-5.66325, -10.456, 5.66325, 10.456, 306, 256.252, 2.29057, -5.23639, -2.29057, 5.23639, 288, 302.509, -19.4454, -14.7625, 19.4454, 14.7625, 321, 339.762, -3.23454, 2.70253, 3.23454, -2.70253, 394, 313.345, -4.40128, -0.319191, 4.40128, 0.319191, 449, 319.31, 0, 0, 0, 0, 494, 292.042, -9.52071, 1.34953, 9.52071, -1.34953, 531, 274.999, -9.25423, -3.82161, 9.25423, 3.82161, 598, 284.373, 0, 0, 0, 0, 631, 324.423, 1.33635, 1.51834, -1.33635, -1.51834, 657, 367.882, -0.875, -7.34968, 0.875, 7.34968, 663, 404.524, 4.28513, -7.92329, -4.28513, 7.92329, 643, 448.835, 9.59416, -4.2655, -9.59416, 4.2655, 603, 472.695, 0, 0, 0, 0, 554.066, 470.86, 12.5141, -3.98113, -12.5141, 3.98113, 490, 447.372, 2.6727, -6.64272, -2.6727, 6.64272, 436, 473.547, 11.693, -4.36522, -11.693, 4.36522, 391, 502.52, 9.98565, 4.03064, -9.98565, -4.03064, 341, 505.076, -0.101635, -3.91734, 0.101635, 3.91734, 260, 464.174)
+}
+point_count = 19
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_p0072")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(400, 300)
+scale = Vector2(0.446429, 0.585938)
+texture = ExtResource("1_s2d5i")
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(-3, -46)
+scale = Vector2(1, 1.17352)
+curve = SubResource("Curve2D_ux07k")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(643.798, 447.493)
+rotation = 2.06909
+progress = 587.43
+
+[node name="cursor" type="Sprite2D" parent="Path2D/PathFollow2D"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_jdnkw")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_w2xq0")
+max_polyphony = 30
+area_mask = 0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_13"
+type="Resource"
+uid="uid://dya4xb2kba7lg"
+path="res://.godot/imported/all_in_one.dialogue-c01815fcbb754fe45d19fdb6da185ab8.tres"
+
+[deps]
+
+source_file="res://dialogues/all_in_one.dialogue"
+dest_files=["res://.godot/imported/all_in_one.dialogue-c01815fcbb754fe45d19fdb6da185ab8.tres"]
+
+[params]
+
+defaults=true
