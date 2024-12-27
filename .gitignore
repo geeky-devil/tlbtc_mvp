@@ -1,11 +1,22 @@
-# Godot 4+ specific ignores
-.godot/
-/android/
-*.txt
-
-# Godot export files
-export/
-
 # Export templates and backups
 *.godot_export
 *.godot_export.bkp
+
+# Node.js dependencies
+node_modules/
+package-lock.json
+
+# Vite output
+dist/
+build/
+
+# Godot project files
+godot-src/.import/
+godot-src/.godot/
+
+# Godot exported files (if rebuilt every time)
+public/godot-export/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
