@@ -1,7 +1,14 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+*.txt
+
+# Godot export files
+export/
+
 # Export templates and backups
 *.godot_export
 *.godot_export.bkp
-
 # Node.js dependencies
 node_modules/
 package-lock.json
