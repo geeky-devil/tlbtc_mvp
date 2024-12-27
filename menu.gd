@@ -83,7 +83,7 @@ var DindexToDiag={
 	10:'election_result',
 	12:'eq_result'
 }
-var dialogue_index = 4
+var dialogue_index = 0
 func _ready():
 	for i in narrationMap.keys():
 		audios[i]=load(narrationMap[i])
@@ -91,6 +91,7 @@ func _ready():
 	SceneLoader.connect("retryAct",_onRetry)
 	SceneLoader.connect("narrate",_narrate)
 	DialogueManager.connect('dialogue_ended',_onDiagEnd)
+	
 	
 	mic_container.modulate.a=0
 	%Begin.self_modulate.a=0

@@ -1337,6 +1337,7 @@ position = Vector2(186, 28)
 texture = ExtResource("24_8dsi5")
 
 [node name="sad" type="Button" parent="."]
+visible = false
 offset_left = 157.407
 offset_top = -146.296
 offset_right = 301.407
@@ -1345,6 +1346,7 @@ action_mode = 0
 text = "sad"
 
 [node name="dis" type="Button" parent="."]
+visible = false
 offset_left = 159.259
 offset_top = -50.0
 offset_right = 303.259
@@ -1353,6 +1355,7 @@ action_mode = 0
 text = "dissapproval"
 
 [node name="surp" type="Button" parent="."]
+visible = false
 offset_left = 159.259
 offset_top = 50.0
 offset_right = 303.259
@@ -1361,6 +1364,7 @@ action_mode = 0
 text = "surprised"
 
 [node name="idle" type="Button" parent="."]
+visible = false
 offset_left = 159.259
 offset_top = 142.593
 offset_right = 303.259
@@ -1370,6 +1374,7 @@ text = "idle
 "
 
 [node name="greet" type="Button" parent="."]
+visible = false
 offset_left = -712.963
 offset_top = -131.481
 offset_right = -568.963

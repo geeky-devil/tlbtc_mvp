@@ -23,7 +23,7 @@ signal finished_typing()
 @export var skip_action: StringName = &"ui_cancel"
 
 ## The speed with which the text types out.
-@export var seconds_per_step: float = 0.02
+@export var seconds_per_step: float = 0.05
 
 ## Automatically have a brief pause when these characters are encountered.
 @export var pause_at_characters: String = ".?!"
@@ -37,10 +37,10 @@ signal finished_typing()
 @export var skip_pause_at_abbreviations: PackedStringArray = ["Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex"]
 
 ## The amount of time to pause when exposing a character present in `pause_at_characters`.
-@export var seconds_per_pause_step: float = 0.3
+@export var seconds_per_pause_step: float = 1.0
 
 var _already_mutated_indices: PackedInt32Array = []
-
+var isDebug = OS.is_debug_build()
 
 ## The current line of dialogue.
 var dialogue_line:
@@ -87,6 +87,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Note: this will no longer be reached if using Dialogue Manager > 2.32.2. To make skip handling
 	# simpler (so all of mouse/keyboard/joypad are together) it is now the responsibility of the
 	# dialogue balloon.
+	
 	if self.is_typing and visible_ratio < 1 and InputMap.has_action(skip_action) and event.is_action_pressed(skip_action):
 		get_viewport().set_input_as_handled()
 		skip_typing()
@@ -117,6 +118,7 @@ func type_out() -> void:
 
 ## Stop typing out the text and jump right to the end
 func skip_typing() -> void:
+	if !isDebug:return # Don't want anybody to skip
 	_mutate_remaining_mutations()
 	visible_characters = get_total_character_count()
 	self.is_typing = false
