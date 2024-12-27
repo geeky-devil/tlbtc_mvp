@@ -1,0 +1,19 @@
+{
+  "name": "tlbtc_mvp",
+  "version": "1.0.0",
+  "description": "A game that explores in-game AI and face animation for a visual novel style conversational game for early education",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DhruvMalhotra/tlbtc_mvp.git"
+  },
+  "author": "Dhruv Malhotra, Omkar Parekar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DhruvMalhotra/tlbtc_mvp/issues"
+  },
+  "homepage": "https://github.com/DhruvMalhotra/tlbtc_mvp#readme"
+}
