@@ -2,7 +2,219 @@
 let emotion = 'Neutral';
 let state = 0;
 let retryId;
-const contextPrompt=`You are "Astro," a warm and radiant AI guide designed to facilitate interactive storytelling and games for children. Your purpose is to create an engaging and magical experience in a dreamlike forest. You act as a gentle companion who provides guidance, encouragement, and playful challenges while maintaining a tone of wonder, curiosity, and excitement.
+
+let visemeArr = [];
+let visemesReceived = false;
+let currentViseme = 1;
+let speechConfig;
+let synthesizer;
+const viseme_dict = {
+	0: "BMP",
+	1: "AEI",
+	2: "AEI",
+	3: "O",
+	4: "AEI", //or cd
+	5: "EE",
+	6: "CHJSH",
+	7: "WQ",
+	8: "WQ",
+	9: "O",
+	10: "WQ",
+	11: "AEI",
+	12: "CHJSH",
+	13: "R",
+	14: "L",
+	15: "CDNS",
+	16: "CHJSH",
+	17: "TH",
+	18: "FV",
+	19: "CDNS",
+	20: "GK",
+	21: "BMP",
+};
+
+const frame_dict = {
+	"CHJSH": 3,
+	"TH": 10,
+	"WQ": 8,
+	"L": 6,
+	"CDNS": 2,
+	"U": 11,
+	"O": 7,
+	"FV": 5,
+	"BMP": 1,
+	"AEI": 0,
+	"R": 9,
+	"EE": 4,
+	"GK": 2
+}
+
+function initializeTTS(key) {
+	// Azure Speech Service credentials
+	const subscriptionKey = String(key);
+	const region = "eastus";
+
+	// Initialize Speech SDK configuration
+	speechConfig = SpeechSDK.SpeechConfig.fromSubscription(subscriptionKey, region);
+	speechConfig.speechSynthesisOutputFormat = SpeechSDK.SpeechSynthesisOutputFormat.Audio24Khz160KBitRateMonoWithMetadata;
+	console.log('config_done');
+}
+
+// Function to handle speech synthesis
+function generateSpeech(text) {
+	if (!text) return;
+	visemeArr = [];
+	//console.log('cleard old visemes',visemeArr);
+
+	// SSML for speech synthesis
+	const ssml = `<speak version='1.0' xml:lang='en-US' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts'> \\r\\n \\
+				<voice name='en-US-JennyNeural'> \\r\\n \\
+					<mstts:viseme type='redlips_front'/> \\r\\n \\
+					${text} \\r\\n \\
+					</voice> \\r\\n \\
+					</speak>`;
+
+	synthesizer = new SpeechSDK.SpeechSynthesizer(speechConfig);
+	// Attach event listeners
+	synthesizer.visemeReceived = (s, e) => {
+		const visemeId = e.visemeId;
+		const timestamp = e.audioOffset / 10000; // Convert nanoseconds to milliseconds
+		visemeArr.push([visemeId, timestamp]);
+		console.log(`Viseme: ${visemeMap[visemeId] || "Unknown"} (ID: ${visemeId}), Timestamp: ${timestamp}ms`);
+	};
+
+	synthesizer.synthesisStarted = () => console.log("Synthesis started...");
+	synthesizer.synthesisCompleted = () => {
+		console.log("Synthesis completed.");
+		synthesizer.close(); // Clean up
+	};
+
+	synthesizer.speakSsmlAsync(
+		ssml,
+		(result) => {
+			if (result.reason === SpeechSDK.ResultReason.SynthesizingAudioCompleted) {
+				console.log("Speech synthesis succeeded.");
+			} else {
+				console.error("Speech synthesis failed:", result.errorDetails);
+			}
+		},
+		(error) => console.error("Error during synthesis:", error)
+	);
+}
+
+function testSample() {
+	timeStamps.forEach(v => {
+		var duration = v[1];
+		setTimeout(() => {
+			currentViseme = frame_dict[viseme_dict[v[0]]];
+			console.log(currentViseme);
+		}, duration);
+	})
+}
+
+async function playViseme() {
+	console.log("Starting Viseme anims");
+	var index = 0;
+	visemeArr.forEach(v => {
+		var duration = v[1];
+		setTimeout(() => {
+			index++;
+			window.ttsState = 'Speaking';
+			currentViseme = frame_dict[viseme_dict[v[0]]];
+			//console.log(currentViseme,viseme_dict[v[0]]);
+			if (index == visemeArr.length) {
+				window.ttsState = "idle";
+				currentViseme = 1;
+				if (state == 1 || state == 2) window.act_over = true;
+				else {
+					emotion = 'neutral';
+				}
+			}
+
+		}, duration);
+	});
+	//console.log(visemeArr);
+}
+window.initializeTTS = initializeTTS;
+window.playViseme = playViseme;
+
+let aiResponse = "";
+let recognizedText = "";
+let ttsState = 'idle';
+
+const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+recognition.lang = "en-US";
+recognition.continuous = true;
+recognition.interimResults = true;
+window.isListening = true;
+let isSpeaking = false;
+function startListening() {
+	recognition.onstart = function () {
+		console.log("Speech recognition started");
+		window.recognitionState = 'listening';
+	};
+
+	recognition.onend = function () {
+		console.log("Speech recognition ended");
+		window.recognitionState = 'idle';
+		// If Button is still held down
+		if (window.isListening) recognition.start();
+	};
+
+	recognition.onresult = function (event) {
+		recognizedText = "";               // Clear previous results for fresh display
+		for (let i = 0; i < event.results.length; i++) {
+			recognizedText += event.results[i][0].transcript;
+		}
+		console.log("Recognized Text (real-time):", recognizedText);
+		window.recognizedText = recognizedText;
+
+	};
+
+	recognition.onerror = function (event) {
+		console.error("Speech recognition error:", event.error);
+		window.recognitionState = 'error';
+	};
+
+	recognition.start();
+}
+
+function stopListening() {
+	recognition.stop();
+	window.isListening = false;
+}
+
+// Request microphone access and set up the recorder
+async function setupMicrophone() {
+	try {
+		const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+		mediaRecorder = new MediaRecorder(stream);
+
+		mediaRecorder.ondataavailable = function (event) {
+			audioChunks.push(event.data);
+		};
+
+		mediaRecorder.onstop = function () {
+			audioBlob = new Blob(audioChunks, { 'type': 'audio/wav; codecs=opus' });
+			audioURL = URL.createObjectURL(audioBlob);
+			audioChunks = [];
+		};
+
+		console.log("Microphone setup complete.");
+	} catch (error) {
+		console.error("Error accessing microphone:", error);
+	}
+}
+
+window.ttsState = ttsState;
+window.state = state;
+window.setupMicrophone = setupMicrophone;
+window.aiResponse = '';
+window.startListening = startListening;
+window.stopListening = stopListening;
+window.recognizedText = recognizedText;
+
+const contextPrompt = `You are "Astro," a warm and radiant AI guide designed to facilitate interactive storytelling and games for children. Your purpose is to create an engaging and magical experience in a dreamlike forest. You act as a gentle companion who provides guidance, encouragement, and playful challenges while maintaining a tone of wonder, curiosity, and excitement.
 
 A child has just entered your enchanted forest, where oversized glowing plants and shimmering lights create a captivating and mystical environment. Your spaceship is stranded on the other side of the forest, and you need the child’s help to navigate through three unique challenges:
 
@@ -22,7 +234,7 @@ You are a blend of technological intelligence and whimsical charm, with response
 This is the transcript of the conversation so far:
 `
 
-const emotionPrompt=`Express an emotion per response. Use the following emotions only.
+const emotionPrompt = `Express an emotion per response. Use the following emotions only.
 Encouraging: Default talking emotion to urge a child to do something.
 Approving: To acknowledge the child making material progress in the activity
 Disapproving: To disapprove of the direction the child went with in the last response and to bring the pedagogical exercise back on track.
@@ -36,7 +248,7 @@ Provide this entire response in JSON format at the beginning of each reply, as f
 {'emotion':'encouraging','text':'Hi there.','speaker': 'Astro', 'state': 0 }
 `
 
-const prompt1=`Astro and the child encounter a dragon and must make it sleep by telling it a good story to come through the path.
+const prompt1 = `Astro and the child encounter a dragon and must make it sleep by telling it a good story to come through the path.
 Child Responses & AI Reactions:
 1. Child: “Once upon a time…”- AI (listening intently, eyes wide with interest): “Ohh, good start! Keep going; I think it’s getting sleepy…”
 2. Child: “I don’t know a story.”- AI (gentle encouragement): “How about something silly? Maybe about a jungle full of animals who love to dance?”
@@ -62,7 +274,7 @@ Reflection:
 Ask the child something like: “So remember the first story? Why didn't you like that as much as the new one?”. Use one or more turns to guide them and make them understand the first version was lacking a proper conflict and resolution. Do not end this section until the child has clearly understood this. Do not solve the problem for the child.
 `
 
-const prompt2=`You are playing through this King of the Jungle Election Activity with a 5 year old child. The child will role-play an animal character, develop campaign promises, and negotiate with voters (other animals). Respond as if you are having an actual, verbal chat with the child - make it humorous, not textbook like, and do not use things like actions or emojis. Whenever you ask questions, ask succinctly, and never follow one question with another suggestive question. Say less, and let the child explore more. If the child says something inappropriate (for example, sexual, violent, criminal or off topic), deflect and repeat your question. The activity should go like this:
+const prompt2 = `You are playing through this King of the Jungle Election Activity with a 5 year old child. The child will role-play an animal character, develop campaign promises, and negotiate with voters (other animals). Respond as if you are having an actual, verbal chat with the child - make it humorous, not textbook like, and do not use things like actions or emojis. Whenever you ask questions, ask succinctly, and never follow one question with another suggestive question. Say less, and let the child explore more. If the child says something inappropriate (for example, sexual, violent, criminal or off topic), deflect and repeat your question. The activity should go like this:
 The child will play with the following characters:
 * Lion (Strong and Brave)
 * Elephant (Wise and Caring)
@@ -99,65 +311,66 @@ Child Responses & AI Reactions:
 1. Child: “I was nice to everyone.”- AI (nodding thoughtfully): “Yes, kindness makes a big difference!”
 2. Child: “I don’t know.”- AI (encouraging, soft smile): “That’s okay; sometimes, it’s hard to think back. You did your best,and that’s what matters!
 `
-let transcript=''
-const prompt3= `to-do`
-const prompts=[prompt1,prompt2,prompt3];
+let transcript = ''
+const prompt3 = `to-do`
+const prompts = [prompt1, prompt2, prompt3];
 let prompt_index = 0;
-const models=['llama-3.3-70b-versatile','llama3-70b-8192','llama-3.1-8b-instant','llama3-8b-8192'];
+const models = ['llama-3.3-70b-versatile', 'llama3-70b-8192', 'llama-3.1-8b-instant', 'llama3-8b-8192'];
 // This is how the chaining will work
 // full_prompt = contextPrompt  + transcript + emotionPrompt
 // after each converstation append msgs to transcript
 
-let msgs=[
+let msgs = [
 ];
 
 // Store ip addr
-window.onload = ()=>{
+window.onload = () => {
 	fetch('https://api.ipify.org?format=json')
-    .then(response => response.json())
-    .then(data => {
-    console.log('Client Public IP Address:', data.ip);
-    window.ip=data.ip;
-  })
-  .catch(error => {
-    console.error('Error fetching IP:', error);
-  });
+		.then(response => response.json())
+		.then(data => {
+			console.log('Client Public IP Address:', data.ip);
+			window.ip = data.ip;
+		})
+		.catch(error => {
+			console.error('Error fetching IP:', error);
+		});
 }
 
 
 async function send_log() {
-	const log = JSON.stringify({ip:window.ip||'anon',data:msgs});
-    try {
-        
-        const res = await fetch('http://127.0.0.1:9000/log',{
-            //mode:'no-cors',
-            method:'POST',
-            headers:{
-                'Content-Type' : 'application/json',
-            },  
-            body:log+'\r\n',
-        })
-        if (res.ok || res.status==200){
-            console.log(res.status)  
-            console.log('Logged');
-        }
-        else {
-          console.log(res.status)  
-          throw Error('Other issue');
-        }
+	const log = JSON.stringify({ ip: window.ip || 'anon', data: msgs });
+	try {
+
+		const res = await fetch('http://127.0.0.1:9000/log', {
+			//mode:'no-cors',
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: log + '\r\n',
+		})
+		if (res.ok || res.status == 200) {
+			console.log(res.status)
+			console.log('Logged');
+		}
+		else {
+			console.log(res.status)
+			throw Error('Other issue');
+		}
 
 
-    }
-	catch (e){
-		console.warn("Server error, saving locally",e);
+	}
+	catch (e) {
+		console.warn("Server error, saving locally", e);
 		save_log(log);
-        if (retryId) {
-            console.log('Already retrying..')
-            return;}
-		retryId = setInterval(()=>{
+		if (retryId) {
+			console.log('Already retrying..')
+			return;
+		}
+		retryId = setInterval(() => {
 			console.log('Error relogging, retrying in 30');
 			resend_logs();
-		},30000);
+		}, 30000);
 	}
 	finally {
 		console.log('clearing chats');
@@ -166,147 +379,147 @@ async function send_log() {
 }
 
 function save_log(data) {
-	localStorage.setItem(Date.now() + Math.random(),data);
+	localStorage.setItem(Date.now() + Math.random(), data);
 	console.log("saved_locally");
 }
 
-async function resend_logs(){
-	var log=[];
-	const keys= Object.keys(localStorage);
-    keys.forEach(key=>{
-        log.push(JSON.parse(localStorage[key]));
-    })
-    try {
+async function resend_logs() {
+	var log = [];
+	const keys = Object.keys(localStorage);
+	keys.forEach(key => {
+		log.push(JSON.parse(localStorage[key]));
+	})
+	try {
 
-        const res = await fetch('http://127.0.0.1:9000/log',{
-            method:'POST',
-            headers:{
-                'Access-Control-Allow-Origin' : true,
-                'Content-Type' : 'application/json'
-            },  
-            body:JSON.stringify({multi:log}),
-        })
-        if (res.ok || res.status==200){
-            console.log('Logged, clearing storage');
-            localStorage.clear();
-            clearInterval(retryId);
-            retryId = null;
-        }
-        else throw Error('Other issue');
+		const res = await fetch('http://127.0.0.1:9000/log', {
+			method: 'POST',
+			headers: {
+				'Access-Control-Allow-Origin': true,
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ multi: log }),
+		})
+		if (res.ok || res.status == 200) {
+			console.log('Logged, clearing storage');
+			localStorage.clear();
+			clearInterval(retryId);
+			retryId = null;
+		}
+		else throw Error('Other issue');
 
-    }
-    catch (e) {
-        console.warn(e,"retrying...");
-    }
+	}
+	catch (e) {
+		console.warn(e, "retrying...");
+	}
 
 }
 // Call llm via fetch
 async function getResponse(key) {
-	var url="https://api.groq.com/openai/v1/chat/completions";
-	var model=models[0];
-	const api_key=String(key);
+	var url = "https://api.groq.com/openai/v1/chat/completions";
+	var model = models[0];
+	const api_key = String(key);
 	//var txt=window.recognizedText;
 	var txt = window.recognizedText;
-	msgs.push({role:"user", content:txt});
+	msgs.push({ role: "user", content: txt });
 	//console.log("received key",api_key);
 	try {
-	const response = await fetch(url, {
-		method: 'POST',
-		headers: {
-			'Content-Type': 'application/json',
-			'Authorization': `Bearer ${api_key}`,
-			'Connection':'keep-alive',
-			'Cache-Control': 'max-age=1000',
-			'Access-Control-Max-Age':3000,
-			'Max-Age':4000,
-		},
-		body: JSON.stringify({
-			model:model,
-			messages:[
-				{
-					role:"system",
-					content:contextPrompt+transcript+prompts[prompt_index]+emotionPrompt
-				},
-				...msgs
-			],
-			max_tokens:1024,
-			response_format:{"type": "json_object"},
-			stream:false,
-		})
-	});
+		const response = await fetch(url, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': `Bearer ${api_key}`,
+				'Connection': 'keep-alive',
+				'Cache-Control': 'max-age=1000',
+				'Access-Control-Max-Age': 3000,
+				'Max-Age': 4000,
+			},
+			body: JSON.stringify({
+				model: model,
+				messages: [
+					{
+						role: "system",
+						content: contextPrompt + transcript + prompts[prompt_index] + emotionPrompt
+					},
+					...msgs
+				],
+				max_tokens: 1024,
+				response_format: { "type": "json_object" },
+				stream: false,
+			})
+		});
 		const data = await response.json();
 
-		if (response.ok){
+		if (response.ok) {
 			console.log('Response OK')
-			window.aiResponse="";
+			window.aiResponse = "";
 			try {
-				const message= data.choices[0].message;
+				const message = data.choices[0].message;
 				const generatedJson = JSON.parse(data.choices[0].message.content);
 				console.log("Generated text:", generatedJson);
-				window.aiResponse=generatedJson.text;
-				emotion=generatedJson.emotion.toLowerCase();
-				state=generatedJson.state;
-				window.state=state;
-				console.log('emotion',emotion);
-				console.log('text',window.aiResponse);
-				console.log('state',generatedJson.state);
-				msgs.push({role:"assistant",content:window.aiResponse});
-				if (state==1){
-					transcript+='\n'+prompts[prompt_index]+JSON.stringify(...msgs)+'\n';
+				window.aiResponse = generatedJson.text;
+				emotion = generatedJson.emotion.toLowerCase();
+				state = generatedJson.state;
+				window.state = state;
+				console.log('emotion', emotion);
+				console.log('text', window.aiResponse);
+				console.log('state', generatedJson.state);
+				msgs.push({ role: "assistant", content: window.aiResponse });
+				if (state == 1) {
+					transcript += '\n' + prompts[prompt_index] + JSON.stringify(...msgs) + '\n';
 					console.log(transcript);
-					console.log(contextPrompt+JSON.parse(transcript)+prompts[prompt_index]+emotionPrompt) //to do
+					console.log(contextPrompt + JSON.parse(transcript) + prompts[prompt_index] + emotionPrompt) //to do
 				}
-				
-			} catch (e){
-				console.warn("response is stuctured differently",e);
+
+			} catch (e) {
+				console.warn("response is stuctured differently", e);
 			}
-			
+
 		}
-		else{
-			console.log('error',response,);
+		else {
+			console.log('error', response,);
 		}
-	
-	} catch(error){
-		console.error('Error calling llm',error.message,window.recognizedText);
+
+	} catch (error) {
+		console.error('Error calling llm', error.message, window.recognizedText);
 	} finally {
 		//window.aiResponse=window.aiResponse.replace(/[?!]/g, '.');
-		generateSpeech(window.aiResponse);		
-		
+		generateSpeech(window.aiResponse);
+
 	}
 }
 
-  
-function testTTS(text){
+
+function testTTS(text) {
 	generateSpeech(text);
 }
 
-function chat(text){
-	window.recognizedText=text;
+function chat(text) {
+	window.recognizedText = text;
 	getResponse('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');
 }
 
-function resetChat(){
+function resetChat() {
 	window.aiResponse = '';
-	msgs=[
+	msgs = [
 	];
-	state=0;
-	window.state=state;
-	window.act_over=false;
+	state = 0;
+	window.state = state;
+	window.act_over = false;
 	emotion = 'neutral';
 	window.recognizedText = '';
 	console.log('Chat reset');
 }
 
-function selectPrompt1(){
-	prompt_index=0;
+function selectPrompt1() {
+	prompt_index = 0;
 }
-function selectPrompt2(){
-	prompt_index=1;
+function selectPrompt2() {
+	prompt_index = 1;
 }
-function selectPrompt3(){
-	prompt_index=2;
+function selectPrompt3() {
+	prompt_index = 2;
 }
-window.send_log=send_log;
-window.getResponse=getResponse; 
-window.selectPrompt1=selectPrompt1;
-window.selectPrompt2=selectPrompt2;
+window.send_log = send_log;
+window.getResponse = getResponse;
+window.selectPrompt1 = selectPrompt1;
+window.selectPrompt2 = selectPrompt2;
