@@ -43,7 +43,7 @@ export default defineConfig({
   build: {
     outDir: 'dist', // Final output folder for deployment
     rollupOptions: {
-        input: './godot-export/index.html', // Make sure this file exists!
+        input: 'index.html', // Make sure this file exists!
       }
   },
 });
