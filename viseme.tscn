@@ -1,10 +1,6 @@
-[gd_scene load_steps=66 format=3 uid="uid://0ooewap8yaqs"]
+[gd_scene load_steps=80 format=3 uid="uid://0ooewap8yaqs"]
 
 [ext_resource type="Script" path="res://viseme.gd" id="1_pgjjo"]
-[ext_resource type="Texture2D" uid="uid://dlw5akcx0xcrm" path="res://sprites/outer_face.png" id="3_366ux"]
-[ext_resource type="Texture2D" uid="uid://bthiu4ut17poc" path="res://sprites/Layer 35 (2).png" id="4_651s7"]
-[ext_resource type="Texture2D" uid="uid://x6b2nvh77q7d" path="res://sprites/inner_face.png" id="5_6wvms"]
-[ext_resource type="Texture2D" uid="uid://ddw0ulglo78pb" path="res://sprites/eyes.png" id="6_8fd72"]
 [ext_resource type="Texture2D" uid="uid://cxh5tgur0trb6" path="res://lips/A,E,I.png" id="7_535fq"]
 [ext_resource type="Texture2D" uid="uid://cv0n0cna3s7vu" path="res://lips/B,M,P.png" id="8_00qwm"]
 [ext_resource type="Texture2D" uid="uid://72vunsq5nxam" path="res://lips/C,D,G,K,N,S,T,X,Y,Z.png" id="9_vfygr"]
@@ -17,8 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://byg5evpa48xt1" path="res://lips/R.png" id="16_qam0v"]
 [ext_resource type="Texture2D" uid="uid://blsfbmdqjb868" path="res://lips/th.png" id="17_jr3mx"]
 [ext_resource type="Texture2D" uid="uid://b02j5fv5sbass" path="res://lips/U.png" id="18_dekup"]
-[ext_resource type="Texture2D" uid="uid://2mvv6ukh52rf" path="res://sprites/left_ear.png" id="19_btpkn"]
-[ext_resource type="Texture2D" uid="uid://b3usd1pmg8cwg" path="res://sprites/right_ear.png" id="20_6anvl"]
 [ext_resource type="Texture2D" uid="uid://d1m511xcg34no" path="res://sprites/character/Asset 42.png" id="21_u7ld8"]
 [ext_resource type="Texture2D" uid="uid://bv5yvcxs4yurw" path="res://sprites/character/Asset 39.png" id="22_y54ce"]
 [ext_resource type="Texture2D" uid="uid://bshr0wymwuenn" path="res://sprites/character/Asset 40.png" id="23_2bbgm"]
@@ -36,55 +30,74 @@
 [ext_resource type="Texture2D" uid="uid://bodhqlwvmpm1h" path="res://sprites/character/Asset 37.png" id="32_hmypg"]
 [ext_resource type="Texture2D" uid="uid://cyx2kxvgucdh4" path="res://sprites/character/Asset 28.png" id="33_hcgrr"]
 [ext_resource type="Texture2D" uid="uid://j3onmlrw0qfv" path="res://sprites/character/Asset 29.png" id="34_qr383"]
+[ext_resource type="Texture2D" uid="uid://j1lktknq65sj" path="res://sprites/updated/L body.png" id="37_b6ajy"]
+[ext_resource type="Texture2D" uid="uid://imed6xhi8c7t" path="res://sprites/updated/B face.png" id="37_ffbgi"]
+[ext_resource type="Texture2D" uid="uid://xirq7qhkrl64" path="res://sprites/updated/WIFI.png" id="37_gsklo"]
+[ext_resource type="Texture2D" uid="uid://cgx73s4cnx3rf" path="res://sprites/updated/L arm.png" id="37_k2cn3"]
+[ext_resource type="Texture2D" uid="uid://b8stlxc487s6a" path="res://sprites/updated/Neck.png" id="37_tmdhn"]
+[ext_resource type="Texture2D" uid="uid://di80aqj6f4n8t" path="res://sprites/updated/U Body.png" id="37_xiqay"]
 [ext_resource type="Texture2D" uid="uid://cbfq7vrwbdqp7" path="res://sprites/character/Asset 32.png" id="38_5tbq3"]
+[ext_resource type="Texture2D" uid="uid://dlsl0wdcpad5k" path="res://sprites/updated/Skin.png" id="38_7jmtr"]
+[ext_resource type="Texture2D" uid="uid://chnw082s41hj0" path="res://sprites/updated/R arm.png" id="38_pljqb"]
+[ext_resource type="Texture2D" uid="uid://lpt3ukxljqy" path="res://sprites/updated/R ear.png" id="39_0qiny"]
 [ext_resource type="Texture2D" uid="uid://bxofa0ysg0vgy" path="res://sprites/character/Asset 35.png" id="39_yhtq6"]
+[ext_resource type="Texture2D" uid="uid://dwnu4uhqsxa7r" path="res://sprites/updated/L ear.png" id="40_crl6j"]
 [ext_resource type="Texture2D" uid="uid://b1ckgmbgcfecc" path="res://sprites/character/Asset 31.png" id="40_mj8fx"]
 [ext_resource type="Texture2D" uid="uid://dhkyrws5o1ibf" path="res://sprites/character/Asset 30.png" id="41_k83wr"]
+[ext_resource type="Texture2D" uid="uid://d084ap5wq5vb8" path="res://sprites/updated/L Eye B.png" id="41_lo518"]
+[ext_resource type="Texture2D" uid="uid://4nq87s7by5gd" path="res://sprites/updated/L eya W.png" id="41_se6vr"]
+[ext_resource type="Texture2D" uid="uid://dtr8mng8uytu6" path="res://sprites/updated/R eye W.png" id="42_10del"]
 [ext_resource type="Texture2D" uid="uid://dahpijanq2dfm" path="res://sprites/character/Asset 34.png" id="42_nkc02"]
+[ext_resource type="Texture2D" uid="uid://c46kbkveul8vu" path="res://sprites/updated/R Eye B.png" id="42_o156p"]
 [ext_resource type="Texture2D" uid="uid://b65ebby4tf381" path="res://sprites/character/Asset 33.png" id="43_u5fat"]
+[ext_resource type="Texture2D" uid="uid://ceews2ioj5gw5" path="res://sprites/updated/L pupil.png" id="45_6dbql"]
+[ext_resource type="Texture2D" uid="uid://dw114wkbhxecu" path="res://sprites/updated/R pupil.png" id="46_dn3hw"]
+[ext_resource type="Texture2D" uid="uid://b42dd53wpp8gp" path="res://sprites/updated/R Hand.png" id="51_3tf7o"]
+[ext_resource type="Texture2D" uid="uid://kdpyp3mdwmef" path="res://sprites/updated/Pant.png" id="52_vc8nj"]
+[ext_resource type="Texture2D" uid="uid://wac7v83v5x8i" path="res://sprites/updated/Rings.png" id="54_5hhr1"]
 
 [sub_resource type="Animation" id="Animation_3b7ii"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("outerFace/innerface:position")
+tracks/0/path = NodePath("OutFace/LeftEyebrow:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.89502, 25)]
+"values": [Vector2(1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("outerFace/innerface/Eyes:position")
+tracks/1/path = NodePath("OutFace/LOuteye:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -37)]
+"values": [Vector2(1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("outerFace/LeftEar:position")
+tracks/2/path = NodePath("OutFace/RightEyebrow:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-214.105, 16)]
+"values": [Vector2(1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("outerFace/RightEar:scale")
+tracks/3/path = NodePath("OutFace/ROeye:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -96,31 +109,31 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("outerFace/RightEar:position")
+tracks/4/path = NodePath("OutFace:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(221.895, 19)]
+"values": [Vector2(1, 1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("outerFace/Layer35(2):position")
+tracks/5/path = NodePath("OutFace/LeftEyebrow:flip_h")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-11.105, -148)]
+"update": 1,
+"values": [true]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("OutFace/LeftEyebrow:scale")
+tracks/6/path = NodePath("OutFace/LCornea:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -132,19 +145,19 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("OutFace/LOuteye:scale")
+tracks/7/path = NodePath("OutFace/RightEyebrow:flip_h")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
+"update": 1,
+"values": [true]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("OutFace/RightEyebrow:scale")
+tracks/8/path = NodePath("OutFace/RCornea:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -156,218 +169,230 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("OutFace/ROeye:scale")
+tracks/9/path = NodePath("OutFace/LCornea/shine1:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(-8.29877, -11.722)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("OutFace:scale")
+tracks/10/path = NodePath("OutFace/LCornea/shine2:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(6.7428, 13.6929)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("OutFace/LeftEyebrow:flip_h")
+tracks/11/path = NodePath("OutFace/RCornea/shine3:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(-8, -12.125)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("OutFace/LCornea:scale")
+tracks/12/path = NodePath("OutFace/RCornea/shine4:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(6.7428, 13.6929)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("OutFace/RightEyebrow:flip_h")
+tracks/13/path = NodePath("OutFace/LeftEyebrow:position")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(-71, -28)]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("OutFace/RCornea:scale")
+tracks/14/path = NodePath("OutFace/LeftEyebrow:rotation")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [0.0]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("OutFace/LCornea/shine1:position")
+tracks/15/path = NodePath("OutFace/RightEyebrow:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-8.29877, -11.722)]
+"values": [Vector2(69, -30)]
 }
 tracks/16/type = "value"
 tracks/16/imported = false
 tracks/16/enabled = true
-tracks/16/path = NodePath("OutFace/LCornea/shine2:position")
+tracks/16/path = NodePath("OutFace/RightEyebrow:rotation")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(6.7428, 13.6929)]
+"values": [0.0]
 }
 tracks/17/type = "value"
 tracks/17/imported = false
 tracks/17/enabled = true
-tracks/17/path = NodePath("OutFace/RCornea/shine3:position")
+tracks/17/path = NodePath("OutFace:position")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-8, -12.125)]
+"values": [Vector2(-201, -52)]
 }
 tracks/18/type = "value"
 tracks/18/imported = false
 tracks/18/enabled = true
-tracks/18/path = NodePath("OutFace/RCornea/shine4:position")
+tracks/18/path = NodePath("OutFace:rotation")
 tracks/18/interp = 1
 tracks/18/loop_wrap = true
 tracks/18/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(6.7428, 13.6929)]
+"values": [0.0]
 }
 tracks/19/type = "value"
 tracks/19/imported = false
 tracks/19/enabled = true
-tracks/19/path = NodePath("OutFace/LeftEyebrow:position")
+tracks/19/path = NodePath("LeftArm:rotation")
 tracks/19/interp = 1
 tracks/19/loop_wrap = true
 tracks/19/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-71, -28)]
+"values": [0.0]
 }
 tracks/20/type = "value"
 tracks/20/imported = false
 tracks/20/enabled = true
-tracks/20/path = NodePath("OutFace/LeftEyebrow:rotation")
+tracks/20/path = NodePath("LeftArm:position")
 tracks/20/interp = 1
 tracks/20/loop_wrap = true
 tracks/20/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(-238.889, 162.963)]
 }
 tracks/21/type = "value"
 tracks/21/imported = false
 tracks/21/enabled = true
-tracks/21/path = NodePath("OutFace/RightEyebrow:position")
+tracks/21/path = NodePath("character/Neck2/BFace/Skin/LEyaW:scale")
 tracks/21/interp = 1
 tracks/21/loop_wrap = true
 tracks/21/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(69, -30)]
+"values": [Vector2(1, 1)]
 }
 tracks/22/type = "value"
 tracks/22/imported = false
 tracks/22/enabled = true
-tracks/22/path = NodePath("OutFace/RightEyebrow:rotation")
+tracks/22/path = NodePath("character/Neck2/BFace/Skin/LT:polygon")
 tracks/22/interp = 1
 tracks/22/loop_wrap = true
 tracks/22/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [PackedVector2Array(-19.2902, 19.2901, -19.2902, 25.0771, -339.506, 25.0771, -339.506, 19.2901)]
 }
 tracks/23/type = "value"
 tracks/23/imported = false
 tracks/23/enabled = true
-tracks/23/path = NodePath("OutFace:position")
+tracks/23/path = NodePath("character/Neck2/BFace/Skin/LD:polygon")
 tracks/23/interp = 1
 tracks/23/loop_wrap = true
 tracks/23/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-201, -52)]
+"values": [PackedVector2Array(-19.2902, 19.2901, -19.2902, 25.0771, -339.506, 25.0771, -339.506, 19.2901)]
 }
 tracks/24/type = "value"
 tracks/24/imported = false
 tracks/24/enabled = true
-tracks/24/path = NodePath("OutFace:rotation")
+tracks/24/path = NodePath("character/Neck2/BFace/Skin/LT2:polygon")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [PackedVector2Array(-19.2902, 19.2901, -19.2902, 25.0771, -339.506, 25.0771, -339.506, 19.2901)]
 }
 tracks/25/type = "value"
 tracks/25/imported = false
 tracks/25/enabled = true
-tracks/25/path = NodePath("LeftArm:rotation")
+tracks/25/path = NodePath("character/Neck2/BFace/Skin/LD2:polygon")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [PackedVector2Array(-19.2902, 19.2901, -19.2902, 25.0771, -339.506, 25.0771, -339.506, 19.2901)]
 }
 tracks/26/type = "value"
 tracks/26/imported = false
 tracks/26/enabled = true
-tracks/26/path = NodePath("LeftArm:position")
+tracks/26/path = NodePath("character/Neck2/BFace/Skin/REyeW:scale")
 tracks/26/interp = 1
 tracks/26/loop_wrap = true
 tracks/26/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-238.889, 162.963)]
+"values": [Vector2(1, 1)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("character:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_gjim0"]
@@ -608,144 +633,101 @@ tracks/6/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_sqybt"]
-resource_name = "look_right"
+[sub_resource type="Animation" id="Animation_rwgfo"]
+resource_name = "idle2"
+length = 2.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("outerFace/innerface:position")
+tracks/0/path = NodePath("character/Neck2/BFace/Skin/LEyaW:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.533333, 0.7, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0.89502, 25), Vector2(36.0598, 25)]
+"values": [Vector2(1, 1), Vector2(1, 0.555), Vector2(1, 1e-05), Vector2(1, 1e-05), Vector2(1, 0.555), Vector2(1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("outerFace/innerface/Eyes:position")
+tracks/1/path = NodePath("character/Neck2/BFace/Skin/LT:polygon")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1.03526, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.533333, 0.7, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, -37), Vector2(24.1758, -37)]
+"values": [PackedVector2Array(-19.2902, 19.2901, -19.2902, 25.0771, -339.506, 25.0771, -339.506, 19.2901), PackedVector2Array(-19.2902, 19.2901, -19.2901, 97.4877, -339.506, 97.4877, -339.506, 19.2901), PackedVector2Array(-19.2902, 19.2901, -19.2901, 184.604, -339.506, 184.604, -339.506, 19.2901), PackedVector2Array(-19.2902, 19.2901, -19.2901, 184.604, -339.506, 184.604, -339.506, 19.2901), PackedVector2Array(-19.2902, 19.2901, -19.2901, 99.5619, -339.506, 99.5619, -339.506, 19.2901), PackedVector2Array(-19.2902, 19.2901, -19.2902, 25.0771, -339.506, 25.0771, -339.506, 19.2901)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("outerFace/LeftEar:position")
+tracks/2/path = NodePath("character/Neck2/BFace/Skin/LD:polygon")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.533333, 0.7, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-214.105, 16), Vector2(-183.336, 16)]
+"values": [PackedVector2Array(-19.2902, 19.2901, -19.2902, 25.0771, -339.506, 25.0771, -339.506, 19.2901), PackedVector2Array(-19.2901, -53.9294, -19.2902, 25.0771, -339.506, 25.0771, -339.506, -53.9294), PackedVector2Array(-19.2901, -132.749, -19.2902, 25.0771, -339.506, 25.0771, -339.506, -132.749), PackedVector2Array(-19.2901, -124.453, -19.2902, 25.0771, -339.506, 25.0771, -339.506, -124.453), PackedVector2Array(-19.2901, -51.8552, -19.2902, 25.0771, -339.506, 25.0771, -339.506, -51.8552), PackedVector2Array(-19.2902, 19.2901, -19.2902, 25.0771, -339.506, 25.0771, -339.506, 19.2901)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("outerFace/RightEar:scale")
+tracks/3/path = NodePath("character/Neck2/BFace/Skin/LT2:polygon")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.533333, 0.7, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(0.64, 0.89)]
+"values": [PackedVector2Array(-19.2902, 19.2901, -19.2902, 25.0771, -339.506, 25.0771, -339.506, 19.2901), PackedVector2Array(-19.2902, 19.2901, -19.2901, 97.4877, -339.506, 97.4877, -339.506, 19.2901), PackedVector2Array(-19.2902, 19.2901, -19.2901, 184.604, -339.506, 184.604, -339.506, 19.2901), PackedVector2Array(-19.2902, 19.2901, -19.2901, 184.604, -339.506, 184.604, -339.506, 19.2901), PackedVector2Array(-19.2902, 19.2901, -19.2901, 99.5619, -339.506, 99.5619, -339.506, 19.2901), PackedVector2Array(-19.2902, 19.2901, -19.2902, 25.0771, -339.506, 25.0771, -339.506, 19.2901)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("outerFace/RightEar:position")
+tracks/4/path = NodePath("character/Neck2/BFace/Skin/LD2:polygon")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.533333, 0.7, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(221.895, 19), Vector2(230.686, 19)]
+"values": [PackedVector2Array(-19.2902, 19.2901, -19.2902, 25.0771, -339.506, 25.0771, -339.506, 19.2901), PackedVector2Array(-19.2901, -53.9294, -19.2902, 25.0771, -339.506, 25.0771, -339.506, -53.9294), PackedVector2Array(-19.2901, -132.749, -19.2902, 25.0771, -339.506, 25.0771, -339.506, -132.749), PackedVector2Array(-19.2901, -124.453, -19.2902, 25.0771, -339.506, 25.0771, -339.506, -124.453), PackedVector2Array(-19.2901, -51.8552, -19.2902, 25.0771, -339.506, 25.0771, -339.506, -51.8552), PackedVector2Array(-19.2902, 19.2901, -19.2902, 25.0771, -339.506, 25.0771, -339.506, 19.2901)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("outerFace/Layer35(2):position")
+tracks/5/path = NodePath("character/Neck2/BFace/Skin/REyeW:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.533333, 0.7, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-11.105, -148), Vector2(28.4554, -148)]
+"values": [Vector2(1, 1), Vector2(1, 0.555), Vector2(1, 1e-05), Vector2(1, 1e-05), Vector2(1, 0.555), Vector2(1, 1)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("character:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.53333, 2),
+"transitions": PackedFloat32Array(0.68302, 1.56917, 1.23114, 1.31951, 1.23114),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 148.965), Vector2(0, 0), Vector2(0, 148.965), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sqybt"]
+resource_name = "look_right"
+loop_mode = 1
 
 [sub_resource type="Animation" id="Animation_ud4lj"]
 resource_name = "look_up"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("outerFace/Layer35(2):position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-11.105, -148), Vector2(-11.105, -168.875)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("outerFace/innerface:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0.89502, 25), Vector2(0.89502, -3.57141)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("outerFace/innerface/Eyes:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -37), Vector2(0, -54.865)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("outerFace/LeftEar:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-214.105, 16), Vector2(-214.105, -14.7692)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("outerFace/RightEar:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(221.895, 19), Vector2(221.895, -13.967)]
-}
 
 [sub_resource type="Animation" id="Animation_cs5dq"]
 resource_name = "sad"
@@ -964,6 +946,7 @@ _data = {
 "dt": SubResource("Animation_gjim0"),
 "greet": SubResource("Animation_i4hk1"),
 "idle1": SubResource("Animation_u106k"),
+"idle2": SubResource("Animation_rwgfo"),
 "look_right": SubResource("Animation_sqybt"),
 "look_up": SubResource("Animation_ud4lj"),
 "sad": SubResource("Animation_cs5dq"),
@@ -989,7 +972,7 @@ animation = &"sad"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_jj7pc"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6rf7o"]
-graph_offset = Vector2(-32.9296, 0.786804)
+graph_offset = Vector2(39.0854, 12.3387)
 nodes/DT/node = SubResource("AnimationNodeAnimation_dt4v3")
 nodes/DT/position = Vector2(640, 320)
 nodes/asurp/node = SubResource("AnimationNodeAnimation_w3y4h")
@@ -1005,51 +988,7 @@ nodes/sd/node = SubResource("AnimationNodeAnimation_8hjur")
 nodes/sd/position = Vector2(420, 320)
 nodes/surp/node = SubResource("AnimationNodeBlend2_jj7pc")
 nodes/surp/position = Vector2(1020, 80)
-node_connections = [&"dis", 0, &"sad", &"dis", 1, &"DT", &"output", 0, &"surp", &"sad", 0, &"idle", &"sad", 1, &"sd", &"surp", 0, &"dis", &"surp", 1, &"asurp"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_m0qlg"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_535fq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_00qwm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_vfygr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_1ic23")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_d8qh7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_askx6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_swpcc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_mtwfc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_5malu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_qam0v")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_jr3mx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_dekup")
-}],
-"loop": false,
-"name": &"default",
-"speed": 10.0
-}]
+node_connections = [&"dis", 0, &"sad", &"dis", 1, &"DT", &"sad", 0, &"idle", &"sad", 1, &"sd", &"surp", 0, &"dis", &"surp", 1, &"asurp"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_32of6"]
 load_path = "res://.godot/imported/Asset 32.png-d3a919ee28bb8eef6aa28d45a44c9f64.ctex"
@@ -1166,8 +1105,52 @@ _data = {
 "greet": SubResource("Animation_5gxld")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_m0qlg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_535fq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_00qwm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vfygr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1ic23")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_d8qh7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_askx6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_swpcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_mtwfc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_5malu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_qam0v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_jr3mx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_dekup")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="Viseme" type="Node2D"]
-position = Vector2(494, 259)
+position = Vector2(1211, 220)
 scale = Vector2(0.54, 0.54)
 script = ExtResource("1_pgjjo")
 speed = 0.5
@@ -1176,32 +1159,6 @@ speed = 0.5
 libraries = {
 "": SubResource("AnimationLibrary_mjbq3")
 }
-
-[node name="outerFace" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-649.556, 7)
-scale = Vector2(0.455, 0.455)
-texture = ExtResource("3_366ux")
-
-[node name="Layer35(2)" type="Sprite2D" parent="outerFace"]
-position = Vector2(-11.105, -148)
-texture = ExtResource("4_651s7")
-
-[node name="innerface" type="Sprite2D" parent="outerFace"]
-position = Vector2(0.89502, 25)
-texture = ExtResource("5_6wvms")
-
-[node name="Eyes" type="Sprite2D" parent="outerFace/innerface"]
-position = Vector2(0, -37)
-texture = ExtResource("6_8fd72")
-
-[node name="LeftEar" type="Sprite2D" parent="outerFace"]
-position = Vector2(-214.105, 16)
-texture = ExtResource("19_btpkn")
-
-[node name="RightEar" type="Sprite2D" parent="outerFace"]
-position = Vector2(221.895, 19)
-texture = ExtResource("20_6anvl")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeBlendTree_6rf7o")
@@ -1269,12 +1226,6 @@ texture = ExtResource("21_u7ld8")
 position = Vector2(0, 35)
 texture = ExtResource("22_y54ce")
 
-[node name="lips" type="AnimatedSprite2D" parent="OutFace/InFace"]
-unique_name_in_owner = true
-position = Vector2(-0.851851, 68.8518)
-scale = Vector2(0.1, 0.1)
-sprite_frames = SubResource("SpriteFrames_m0qlg")
-
 [node name="LeftEyebrow" type="Sprite2D" parent="OutFace"]
 position = Vector2(-71, -28)
 texture = ExtResource("33_hcgrr")
@@ -1285,7 +1236,16 @@ position = Vector2(69, -30)
 texture = ExtResource("34_qr383")
 flip_h = true
 
+[node name="Leyelid" type="Polygon2D" parent="OutFace"]
+visible = false
+position = Vector2(-215.148, 36.6667)
+texture = ExtResource("38_5tbq3")
+texture_offset = Vector2(38.115, 45.575)
+invert_border = 17.1
+polygon = PackedVector2Array(-24.5927, -37.276, -19.0371, -41.2585, -9.77783, -45.241, 6.88885, -45.241, 17.9999, -41.2585, 25.4073, -35.2848, 30.963, -25.4074, 34.6666, -17.3636, 36.5184, -5.4162, 36.5184, 6.53122, 34.6666, 20.4699, 30.9629, 30.4261, 19.8518, 40.3823, 8.74066, 44.3647, -2.37042, 44.3647, -13.4816, 44.3647, -22.7408, 38.3911, -28.2963, 30.1481, -35.7037, 20.4699, -37.5555, 6.07407, -37.5556, -6.88892, -37.5556, -6.88892, -35.7038, -14.2963, -33.8519, -19.8519, -30.1482, -29.3111)
+
 [node name="LOuteye" type="Sprite2D" parent="OutFace"]
+modulate = Color(1, 1, 1, 0.945098)
 position = Vector2(-67, 20)
 texture = ExtResource("38_5tbq3")
 
@@ -1337,34 +1297,33 @@ position = Vector2(186, 28)
 texture = ExtResource("24_8dsi5")
 
 [node name="sad" type="Button" parent="."]
-visible = false
 offset_left = 157.407
 offset_top = -146.296
 offset_right = 301.407
 offset_bottom = -77.2963
 action_mode = 0
 text = "sad"
+metadata/_edit_use_anchors_ = true
 
 [node name="dis" type="Button" parent="."]
-visible = false
 offset_left = 159.259
 offset_top = -50.0
 offset_right = 303.259
 offset_bottom = 19.0
 action_mode = 0
 text = "dissapproval"
+metadata/_edit_use_anchors_ = true
 
 [node name="surp" type="Button" parent="."]
-visible = false
 offset_left = 159.259
 offset_top = 50.0
 offset_right = 303.259
 offset_bottom = 119.0
 action_mode = 0
 text = "surprised"
+metadata/_edit_use_anchors_ = true
 
 [node name="idle" type="Button" parent="."]
-visible = false
 offset_left = 159.259
 offset_top = 142.593
 offset_right = 303.259
@@ -1372,20 +1331,141 @@ offset_bottom = 211.593
 action_mode = 0
 text = "idle
 "
+metadata/_edit_use_anchors_ = true
 
 [node name="greet" type="Button" parent="."]
-visible = false
 offset_left = -712.963
 offset_top = -131.481
 offset_right = -568.963
 offset_bottom = -62.4815
 action_mode = 0
 text = "greet"
+metadata/_edit_use_anchors_ = true
 
 [node name="BodyAnim" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_1aw6h")
 }
+
+[node name="character" type="Node2D" parent="."]
+scale = Vector2(0.96, 0.96)
+
+[node name="LBody" type="Sprite2D" parent="character"]
+position = Vector2(-1492.59, 1374.07)
+texture = ExtResource("37_b6ajy")
+
+[node name="LArm" type="Sprite2D" parent="character"]
+position = Vector2(-1612.65, 839.12)
+texture = ExtResource("37_k2cn3")
+offset = Vector2(-123.43, 135.92)
+
+[node name="LHand" type="Sprite2D" parent="character/LArm"]
+position = Vector2(-248.457, 262.731)
+texture = ExtResource("51_3tf7o")
+
+[node name="RArm" type="Sprite2D" parent="character"]
+position = Vector2(-1392.75, 827.546)
+texture = ExtResource("38_pljqb")
+offset = Vector2(123.43, 135.92)
+
+[node name="RHand" type="Sprite2D" parent="character/RArm"]
+position = Vector2(242.747, 274.306)
+texture = ExtResource("51_3tf7o")
+
+[node name="UBody" type="Sprite2D" parent="character"]
+position = Vector2(-1492.59, 1007.41)
+texture = ExtResource("37_xiqay")
+
+[node name="Pant2" type="Sprite2D" parent="character"]
+position = Vector2(-1492.59, 1262.96)
+texture = ExtResource("52_vc8nj")
+
+[node name="Rings" type="Sprite2D" parent="character"]
+position = Vector2(-1492.59, 1690.74)
+texture = ExtResource("54_5hhr1")
+
+[node name="Neck2" type="Sprite2D" parent="character"]
+position = Vector2(-1496.3, 798.148)
+texture = ExtResource("37_tmdhn")
+
+[node name="BFace" type="Sprite2D" parent="character/Neck2"]
+position = Vector2(-11.1111, -616.667)
+texture = ExtResource("37_ffbgi")
+
+[node name="Skin" type="Sprite2D" parent="character/Neck2/BFace"]
+position = Vector2(0, 140.741)
+texture = ExtResource("38_7jmtr")
+
+[node name="LEyaW" type="Sprite2D" parent="character/Neck2/BFace/Skin"]
+position = Vector2(-214.815, -50.0001)
+texture = ExtResource("41_se6vr")
+
+[node name="LEyeB" type="Sprite2D" parent="character/Neck2/BFace/Skin"]
+position = Vector2(-207.407, -51.8518)
+texture = ExtResource("41_lo518")
+
+[node name="LPupil" type="Sprite2D" parent="character/Neck2/BFace/Skin"]
+position = Vector2(-207.407, -51.8519)
+texture = ExtResource("45_6dbql")
+
+[node name="REyeW" type="Sprite2D" parent="character/Neck2/BFace/Skin"]
+position = Vector2(214.815, -50.0003)
+texture = ExtResource("42_10del")
+
+[node name="REyeB" type="Sprite2D" parent="character/Neck2/BFace/Skin"]
+position = Vector2(205.556, -51.8519)
+texture = ExtResource("42_o156p")
+
+[node name="RPupil" type="Sprite2D" parent="character/Neck2/BFace/Skin"]
+position = Vector2(203.704, -51.8519)
+texture = ExtResource("46_dn3hw")
+
+[node name="LT" type="Polygon2D" parent="character/Neck2/BFace/Skin"]
+position = Vector2(-22.299, -214.198)
+scale = Vector2(1, 0.93)
+color = Color(0.964706, 0.862745, 0.772549, 1)
+invert_border = 0.1
+polygon = PackedVector2Array(-19.2902, 19.2901, -19.2902, 25.0771, -339.506, 25.0771, -339.506, 19.2901)
+
+[node name="LT2" type="Polygon2D" parent="character/Neck2/BFace/Skin"]
+position = Vector2(382.794, -214.198)
+scale = Vector2(1, 0.93)
+color = Color(0.964706, 0.862745, 0.772549, 1)
+invert_border = 0.1
+polygon = PackedVector2Array(-19.2902, 19.2901, -19.2902, 25.0771, -339.506, 25.0771, -339.506, 19.2901)
+
+[node name="LD" type="Polygon2D" parent="character/Neck2/BFace/Skin"]
+position = Vector2(-22.299, 71.2961)
+scale = Vector2(1, 0.93)
+color = Color(0.964706, 0.862745, 0.772549, 1)
+invert_border = 0.1
+polygon = PackedVector2Array(-19.2902, 19.2901, -19.2902, 25.0771, -339.506, 25.0771, -339.506, 19.2901)
+
+[node name="LD2" type="Polygon2D" parent="character/Neck2/BFace/Skin"]
+position = Vector2(386.652, 71.2961)
+scale = Vector2(1, 0.93)
+color = Color(0.964706, 0.862745, 0.772549, 1)
+invert_border = 0.1
+polygon = PackedVector2Array(-19.2902, 19.2901, -19.2902, 25.0771, -339.506, 25.0771, -339.506, 19.2901)
+
+[node name="lips" type="AnimatedSprite2D" parent="character/Neck2/BFace/Skin"]
+unique_name_in_owner = true
+position = Vector2(1.85222, 201.852)
+scale = Vector2(0.28, 0.28)
+sprite_frames = SubResource("SpriteFrames_m0qlg")
+frame = 1
+
+[node name="REar" type="Sprite2D" parent="character/Neck2/BFace"]
+position = Vector2(588.889, 100)
+texture = ExtResource("39_0qiny")
+
+[node name="LEar" type="Sprite2D" parent="character/Neck2/BFace"]
+position = Vector2(-587.037, 100)
+texture = ExtResource("40_crl6j")
+
+[node name="Wifi" type="Sprite2D" parent="character"]
+position = Vector2(-1507.41, -188.889)
+texture = ExtResource("37_gsklo")
 
 [connection signal="pressed" from="sad" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="dis" to="." method="_on_dis_pressed"]
