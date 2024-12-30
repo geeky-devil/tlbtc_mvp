@@ -482,6 +482,10 @@ grow_horizontal = 2
 script = ExtResource("1_oye5h")
 dialogue_res = ExtResource("2_labpj")
 
+[node name="Narrator" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_go328")
+area_mask = 0
+
 [node name="Bg1" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(-0.499997, 300)
@@ -660,9 +664,6 @@ offset_top = 15.0
 offset_right = -333.0
 offset_bottom = 46.0
 text = "Pause"
-
-[node name="Narrator" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("12_go328")
 
 [connection signal="pressed" from="Begin" to="." method="_on_begin_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animplayer_animation_finished"]

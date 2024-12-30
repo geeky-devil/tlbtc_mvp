@@ -1,26 +1,26 @@
-~ start 
+~ start
 do SceneLoader.narrate.emit('C_1')
-In the cozy bedroom, everything feels safe and warm. A small nightlight glows softly, making friendly shapes on the walls. Books are stacked on the table, their stories ready to be dreamed about. On the shelf, a row of cuddly toys sit quietly, keeping watch.
-do SceneLoader.narrate.emit('C_2')
-Snuggled under a soft, starry blanket, the child is getting sleepier and sleepier. Their eyes slowly start to close, and their breathing becomes gentle, like a happy little breeze.
+In the cozy bedroom, everything feels safe and warm. A small nightlight glows softly, making friendly shapes on the walls. Books are stacked on the table, their stories ready to be dreamed about. On the shelf, a row of cuddly toys sit quietly, keeping watch. [next=2]
+do SceneLoader.narrate.emit('C_2') 
+Snuggled under a soft, starry blanket, the child is getting sleepier and sleepier. Their eyes slowly start to close, and their breathing becomes gentle, like a happy little breeze.[next=2]
 do SceneLoader.narrate.emit('C_3')
-But wait—something magical is happening! Little sparkles of light begin to twinkle around the room, like tiny fireflies. They spin and swirl, brighter and brighter, until they form a glowing circle. The child’s quilt starts to shimmer, and suddenly, the whole room begins to change…
+But wait—something magical is happening! Little sparkles of light begin to twinkle around the room, like tiny fireflies. They spin and swirl, brighter and brighter, until they form a glowing circle. The child’s quilt starts to shimmer, and suddenly, the whole room begins to change…[next=2]
 => END
 
 ~ scene_2
 do SceneLoader.narrate.emit('D')
-The little sparkles swirl faster and faster, like a glittery tornado! They lift the child gently into the air, carrying them higher and higher, straight into the sky. The bedroom fades away, and suddenly, everything is bright and colorful!
+The little sparkles swirl faster and faster, like a glittery tornado! They lift the child gently into the air, carrying them higher and higher, straight into the sky. The bedroom fades away, and suddenly, everything is bright and colorful![next=2]
 => END
 
 ~ scene_3
 do SceneLoader.narrate.emit('E_1')
-Rainbows stretch across the clouds, and tiny stars twinkle all around. The child floats through a magical tunnel of glowing lights, like sliding down a sparkling rainbow. The air feels soft and warm, and a happy little chime rings out—ding!—as if saying, 'Welcome to the dream forest!'
+Rainbows stretch across the clouds, and tiny stars twinkle all around. The child floats through a magical tunnel of glowing lights, like sliding down a sparkling rainbow. The air feels soft and warm, and a happy little chime rings out—ding!—as if saying, 'Welcome to the dream forest!'[next=2]
 do SceneLoader.narrate.emit('E_2')
-When the child’s feet touch the ground, their eyes pop open. They look around in wonder. Everywhere they see big, colorful trees with glowing leaves, sparkling flowers, and tiny lights flying in the air like glowing butterflies.
+When the child’s feet touch the ground, their eyes pop open. They look around in wonder. Everywhere they see big, colorful trees with glowing leaves, sparkling flowers, and tiny lights flying in the air like glowing butterflies.[next=2]
 do SceneLoader.narrate.emit('E_3')
-'Wow,' the child whispers, 'This place is amazing!'
+'Wow,' the child whispers, 'This place is amazing!'[next=2]
 do SceneLoader.narrate.emit('E_4')
-The magical forest stretches out in every direction, full of surprises just waiting to be discovered. The adventure is about to begin!
+The magical forest stretches out in every direction, full of surprises just waiting to be discovered. The adventure is about to begin![next=2]
 => END
 
 ~ wake_up
@@ -31,13 +31,13 @@ you see something unexpected
 
 ~ jungle_talk
 do SceneLoader.narrate.emit('F_1')
-The child looks all around, taking in the incredible sights of the dream world. Giant trees with glowing leaves sway gently, as if they’re waving hello. Flowers as big as umbrellas bloom in slow motion, and tiny sparkles float through the air like friendly fireflies.
+The child looks all around, taking in the incredible sights of the dream world. Giant trees with glowing leaves sway gently, as if they’re waving hello. Flowers as big as umbrellas bloom in slow motion, and tiny sparkles float through the air like friendly fireflies.[next=2]
 do SceneLoader.narrate.emit('F_2')
-The ground beneath their feet is soft and shiny, glittering like it’s made of stars. Strange little creatures peek out from behind bushes—some with wings, some with long, swirly tails, all of them giggling and darting away.
+The ground beneath their feet is soft and shiny, glittering like it’s made of stars. Strange little creatures peek out from behind bushes—some with wings, some with long, swirly tails, all of them giggling and darting away.[next=2]
 do SceneLoader.narrate.emit('F_3')
-A gentle breeze carries the sound of soft music, like the forest itself is humming a happy tune. The child takes a step forward, eyes wide with excitement. But then, something catches their attention—a glowing light coming from deeper in the forest. It grows brighter and brighter until… it begins to take shape!
+A gentle breeze carries the sound of soft music, like the forest itself is humming a happy tune. The child takes a step forward, eyes wide with excitement. But then, something catches their attention—a glowing light coming from deeper in the forest. It grows brighter and brighter until… it begins to take shape![next=2]
 do SceneLoader.narrate.emit('F_4')
-Out of the glowing light steps someone magical. It’s not a person—it’s a glowing figure that looks like it’s made of stars and rainbows! Their eyes twinkle like little galaxies, and their smile is so warm it makes the whole forest feel even more magical
+Out of the glowing light steps someone magical. It’s not a person—it’s a glowing figure that looks like it’s made of stars and rainbows! Their eyes twinkle like little galaxies, and their smile is so warm it makes the whole forest feel even more magical[next=2]
 
 => END
 
