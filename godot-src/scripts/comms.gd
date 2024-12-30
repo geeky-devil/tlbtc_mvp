@@ -26,14 +26,13 @@ func _ready():
 		set_process(false)
 		return
 # Functions to control the JavaScript audio functions
-
 func get_recognized_text() -> String:
-    return JavaScriptBridge.call("eval", "window.TLBTC.speechRecognizer.getRecognizedText() || ''")
+	return JavaScriptBridge.call("eval", "window.TLBTC.speechRecognizer.getRecognizedText() || ''")
 
 func _on_record_pressed():
 	print('Listening...')
 	isListening=true  #TODO: Why is this here, should be managed from SpeechRecognizer
-    JavaScriptBridge.call("eval", "window.TLBTC.speechRecognizer.startListening();")
+	JavaScriptBridge.call("eval", "window.TLBTC.speechRecognizer.startListening();")
 
 func _on_record_button_up():
 	print('Button released, stopped listening')

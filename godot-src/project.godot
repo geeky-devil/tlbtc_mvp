@@ -21,8 +21,9 @@ driver/enable_input=true
 
 [autoload]
 
-SceneLoader="*res://scene_loader.gd"
+SceneLoader="*res://globals/scene_loader.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+GameOrchestrator="*res://globals/gameOrchestrator.gd"
 
 [display]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=80 format=3 uid="uid://0ooewap8yaqs"]
 
-[ext_resource type="Script" path="res://viseme.gd" id="1_pgjjo"]
+[ext_resource type="Script" path="res://scripts/viseme.gd" id="1_pgjjo"]
 [ext_resource type="Texture2D" uid="uid://cxh5tgur0trb6" path="res://lips/A,E,I.png" id="7_535fq"]
 [ext_resource type="Texture2D" uid="uid://cv0n0cna3s7vu" path="res://lips/B,M,P.png" id="8_00qwm"]
 [ext_resource type="Texture2D" uid="uid://72vunsq5nxam" path="res://lips/C,D,G,K,N,S,T,X,Y,Z.png" id="9_vfygr"]
