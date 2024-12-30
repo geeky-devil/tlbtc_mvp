@@ -183,7 +183,7 @@ func _onDiagEnd(diag):
 		JavaScriptBridge.call("eval","window.resetChat()")
 		if dialogue_index == 5:
 			JavaScriptBridge.call("eval","window.selectPrompt1()")
-			print('Switched to dragon prompt')
+			print('Switched to storytelling prompt')
 		elif dialogue_index == 7:
 			JavaScriptBridge.call("eval","window.selectPrompt2()")
 			print('Switched to election prompt')
@@ -206,7 +206,7 @@ func _on_convo_ended():
 	animPlayer.play_backwards("micTest")
 	await  animPlayer.animation_finished
 	JavaScriptBridge.call("eval","window.send_log()")
-	#Handle the dialogue based on the acts, c
+	# Handle the dialogue based on the acts, c
 	DialogueManager.show_example_dialogue_balloon(dialogue_res,DindexToDiag[dialogue_index])
 	#dialogue_index+=1
 	#var sname=Title2Bg[DialogueTitles[dialogue_index]]

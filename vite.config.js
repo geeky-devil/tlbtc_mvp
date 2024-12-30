@@ -43,7 +43,12 @@ export default defineConfig({
   build: {
     outDir: 'dist', // Final output folder for deployment
     rollupOptions: {
-        input: 'index.html', // Make sure this file exists!
+        input: 'godot-export/godot-game.html', // Make sure this file exists!
       }
+  },
+  server: {
+    watch: {
+      usePolling: true,
+    },
   },
 });

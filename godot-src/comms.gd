@@ -5,10 +5,8 @@ signal convo_ended
 
 @onready var game_state = $GameState
 @onready var viseme = $"../Viseme"
-var console
-var window
 var received_text
-var isListening
+var isListening 
 var act_end = false
 var StoryStates = {
 	0:'In-Progress',
@@ -24,57 +22,24 @@ func _ready():
 	SceneLoader.connect("retryAct",_startAct)
 	isListening=false
 	connect('sendText',%HTTPRequest.sendRequest)
-	setup_microphone()
 	if OS.is_debug_build():
 		set_process(false)
 		return
-	console=JavaScriptBridge.get_interface('console')
-	window=JavaScriptBridge.get_interface('window')
 # Functions to control the JavaScript audio functions
-func setup_microphone() -> void:
-	JavaScriptBridge.call("eval", "setupMicrophone();")
-
-func start_recording() -> void:
-	JavaScriptBridge.call("eval", "startRecording();")
-
-func stop_recording() -> void:
-	JavaScriptBridge.call("eval", "stopRecording();")
-
-func play_audio() -> void:
-	JavaScriptBridge.call("eval", "playAudio();")
-
-func start_listening() -> void:
-	JavaScriptBridge.call("eval", "startListening();")
-
-func stop_listening() ->void:
-	JavaScriptBridge.call("eval","stopListening();")
 
 func get_recognized_text() -> String:
-	return JavaScriptBridge.call("eval", "window.recognizedText || ''")
-
-
-func _on_play_pressed():
-	play_audio()
-
-
-func _on_stop_pressed():
-	stop_recording()
-
-
-func _on_start_pressed():
-	start_recording()
+    return JavaScriptBridge.call("eval", "window.TLBTC.speechRecognizer.getRecognizedText() || ''")
 
 func _on_record_pressed():
 	print('Listening...')
-	isListening=true
-	start_listening()
-	
+	isListening=true  #TODO: Why is this here, should be managed from SpeechRecognizer
+    JavaScriptBridge.call("eval", "window.TLBTC.speechRecognizer.startListening();")
 
 func _on_record_button_up():
 	print('Button released, stopped listening')
-	stop_listening()
+	isListening=false #TODO: Why is this here, should be managed from SpeechRecognizer
+	JavaScriptBridge.call("eval", "window.TLBTC.speechRecognizer.stopListening();")
 	sendText.emit()
-	isListening=false
 
 func  _process(delta):
 	var currentState = JavaScriptBridge.call('eval','window.state')
