@@ -7,6 +7,9 @@ window.TLBTC = window.TLBTC || {};
 const speechRecognizer = new SpeechRecognizer();
 window.TLBTC.speechRecognizer = speechRecognizer;
 
+//setup window.TLBTC.dialogue_state
+
+
 //window.resetChat = resetChat;
 
 //let retryId;
@@ -21,6 +24,7 @@ window.TLBTC.speechRecognizer = speechRecognizer;
 //let ttsState = 'idle'; //unused
 
 //window.ttsState = ttsState;
+//window.setupMicrophone = setupMicrophone;
 //window.aiResponse = '';
 
 //window.send_log = send_log;

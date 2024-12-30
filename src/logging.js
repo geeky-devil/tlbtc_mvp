@@ -11,6 +11,8 @@ window.onload = () => {
 		});
 }
 
+
+// Todo: make logger class.\, with one ,method. It should window. tlbtc.transcript.
 async function send_log() {
 	const log = JSON.stringify({ ip: window.ip || 'anon', data: msgs });
 	try {

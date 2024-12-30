@@ -1,0 +1,30 @@
+
+    msgs.push({ role: "user", content: txt });
+
+
+    emotion = generatedJson.emotion.toLowerCase();
+
+    try {
+   
+                state = generatedJson.state;
+                console.log('emotion', emotion);
+                console.log('text', window.aiResponse);
+                console.log('state', generatedJson.state);
+
+
+                
+                if (state == 1) {
+                    transcript += '\n' + prompts[prompt_index] + JSON.stringify(...msgs) + '\n';
+                    console.log(transcript);
+                    console.log(contextPrompt + JSON.parse(transcript) + prompts[prompt_index] + emotionPrompt) //to do
+                }
+
+            } catch (e) {
+                console.warn("response is stuctured differently", e);
+            }
+
+    
+//state 0 : The conversation has NOT finished.
+//state 1 : The child successfully completes the activity and the conversation is over.
+//state 2 : The child failes/denies to participate and the conversation is over.
+let conversation_state = 0; // TODO: make enum

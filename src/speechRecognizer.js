@@ -1,8 +1,7 @@
 class SpeechRecognizer {
     constructor() {
         this.recognizedText = "";
-        this.recognitionState = ""; //Merge this with isListening
-        this.isListening = false
+        this.recognitionStopped = true;
 
         this.recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
         this.recognition.lang = "en-US";
@@ -37,14 +36,13 @@ class SpeechRecognizer {
     setupRecognitionHandlers() {
         this.recognition.onstart = () => {
             console.log("Speech recognition started");
-            this.recognitionState = 'listening';
         };
 
         this.recognition.onend = () => {
             console.log("Speech recognition ended");
-            this.recognitionState = 'idle';
-            // If Button is still held down
-            if (this.isListening) this.recognition.start();
+            
+            if (this.recognitionStopped = false)
+                this.recognition.start();
         };
 
         this.recognition.onresult = (event) => {
@@ -58,18 +56,17 @@ class SpeechRecognizer {
 
         this.recognition.onerror = (event) => {
             console.error("Speech recognition error:", event.error);
-            this.recognitionState = 'error';
         };
     }
 
     startListening() {
+        recognitionStopped = false;
         this.recognition.start();
-		this.isListening = true;
     }
 
     stopListening() {
+        recognitionStopped = true;
         this.recognition.stop();
-        this.isListening = false;
     }
 
     getRecognizedText() {

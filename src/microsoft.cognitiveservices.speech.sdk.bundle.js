@@ -17417,7 +17417,7 @@ class SpeakerAudioDestination {
                 });
                 this.privAudio.onplay= () => {
                     //console.log('On play triggered'); //This is it
-                    window.playViseme();
+                    window.TLBTC.playViseme();
                 } 
             }
             else {
@@ -17506,14 +17506,14 @@ class SpeakerAudioDestination {
         }
     }
     async notifyPlayback() {
-        if (!this.privPlaybackStarted && this.privAudio !== undefined && visemesReceived) {
+        if (!this.privPlaybackStarted && this.privAudio !== undefined && window.TLBTC.visemesReceived) {
             this.privPlaybackStarted = true;
             if (!!this.onAudioStart) {
                 this.onAudioStart(this);
             }
             this.privAudio.onended = () => {
                 console.log('Audio Ended');
-                visemesReceived=false;
+                window.TLBTC.visemesReceived=false;
                 if (!!this.onAudioEnd) {
                     this.onAudioEnd(this);
                 }
@@ -25696,7 +25696,7 @@ class SynthesisAdapterBase {
                                     this.onAvatarEvent(metadata);
                                     break;
                                 case Exports_js_3.MetadataType.SessionEnd:
-                                    visemesReceived=true;
+                                    window.TLBTC.visemesReceived=true;
                                     console.log('All visemes received');
                                     this.privSynthesisTurn.onSessionEnd(metadata);
                                     break;
