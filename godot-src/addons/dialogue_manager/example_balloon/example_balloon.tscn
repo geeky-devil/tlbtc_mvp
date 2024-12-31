@@ -120,6 +120,7 @@ size_flags_vertical = 3
 text = "Dialogue..."
 
 [node name="Next" type="Button" parent="Balloon"]
+visible = false
 layout_mode = 2
 offset_left = 681.0
 offset_top = 532.0
@@ -157,5 +158,4 @@ layout_mode = 2
 text = "Response example"
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
-[connection signal="pressed" from="Balloon/Next" to="." method="_on_next_pressed"]
 [connection signal="response_selected" from="Balloon/Responses/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

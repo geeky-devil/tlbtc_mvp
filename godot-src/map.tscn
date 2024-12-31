@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bp2eqt37qqms7"]
 
-[ext_resource type="Script" path="res://map.gd" id="1_p0072"]
+[ext_resource type="Script" path="res://scripts/map.gd" id="1_p0072"]
 [ext_resource type="Texture2D" uid="uid://gfui80kye5bf" path="res://scenes/map.png" id="1_s2d5i"]
 [ext_resource type="Texture2D" uid="uid://cbk6gb5053js1" path="res://icon.svg" id="2_jdnkw"]
 [ext_resource type="AudioStream" uid="uid://bmtffbg3p4iny" path="res://placeholders/421152__giocosound__footstep_wood_toe_2.wav" id="4_w2xq0"]

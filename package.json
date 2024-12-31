@@ -4,9 +4,11 @@
   "description": "A game that explores in-game AI and face animation for a visual novel style conversational game for early education",
   "main": "index.js",
   "scripts": {
-    "export:godot": "godot --headless --path godot-src --export HTML5 public/godot-export/index.html",
-    "dev": "vite",
-    "build": "npm run export:godot && vite build"
+    "clean:godot_export": "rm -rf godot-export/*",
+    "export:godot_release": "npm run clean:godot_export && /Applications/Godot.app/Contents/MacOS/Godot --headless --path godot-src --export-release 'tlbtc_demo' ../godot-export/godot_game.html",
+    "export:godot_build": "npm run clean:godot_export && /Applications/Godot.app/Contents/MacOS/Godot --headless --path godot-src --export-debug 'tlbtc_demo' ../godot-export/godot_game.html",
+    "dev": "npm run export:godot_build && vite",
+    "build": "npm run export:godot_release && vite build"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,8 @@
   },
   "homepage": "https://github.com/DhruvMalhotra/tlbtc_mvp#readme",
   "devDependencies": {
-    "vite": "^6.0.6"
+    "vite": "^6.0.6",
+    "vite-plugin-compression": "0.5.1",
+    "vite-plugin-static-copy": "2.2.0"
   }
 }
