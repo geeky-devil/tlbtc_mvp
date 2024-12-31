@@ -23,7 +23,10 @@ driver/enable_input=true
 
 SceneLoader="*res://globals/scene_loader.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-GameOrchestrator="*res://globals/gameOrchestrator.gd"
+GameOrchestrator="*res://globals/game_orchestrator.gd"
+GameStructure="*res://globals/game_structure/scene_conversation.gd"
+Startup="*res://globals/startup.gd"
+Globals="*res://globals/GAME_CONFIG.gd"
 
 [display]
 
