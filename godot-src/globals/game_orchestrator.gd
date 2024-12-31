@@ -1,4 +1,8 @@
-extends Node
+class GameOrchestrator:
+	extends Object  
+
+	func _start():
+
 
 """
 TO - DO

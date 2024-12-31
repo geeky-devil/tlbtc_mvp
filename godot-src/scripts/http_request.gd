@@ -40,4 +40,4 @@ func sendRequest():
 		return
 	%AIstate.text='thinking'
 	print('Getting Response')
-	window.getResponse(str(api_key))
+	#window.getResponse(str(api_key))

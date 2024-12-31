@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://cq80cowp5bqci"]
 
-[ext_resource type="Texture2D" uid="uid://b1duui5i5ivjp" path="res://bg/bg1.jpg" id="1_aagla"]
+[ext_resource type="Texture2D" uid="uid://b1duui5i5ivjp" path="res://scene_background_art/bg1.jpg" id="1_aagla"]
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_oye5h"]
 [ext_resource type="FontFile" uid="uid://cos2p43qul2sb" path="res://placeholders/MysteryQuest-Regular.ttf" id="2_51d8n"]
 [ext_resource type="Resource" uid="uid://dya4xb2kba7lg" path="res://dialogues/all_in_one.dialogue" id="2_labpj"]
